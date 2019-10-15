@@ -11,7 +11,7 @@ with open('README.rst') as readme_file:
 with open('HISTORY.rst') as history_file:
     history = history_file.read()
 
-requirements = ['Click>=6.0', 'boto3>=1.9.15', 'botocore>=1.12.15']
+requirements = []
 
 setup_requirements = ['pytest-runner', ]
 
@@ -37,6 +37,10 @@ setup(
             'faws=faws.cli:main',
         ],
     },
+    extras_require={
+        'boto3': ['boto3>=1.9.15', 'botocore>=1.12.15'],
+        'cli': ['Click>=6.0']
+    },
     install_requires=requirements,
     license="MIT license",
     long_description=readme + '\n\n' + history,
@@ -48,6 +52,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/hvnsweeting/faws',
-    version='0.1.9',
+    version='0.1.10',
     zip_safe=False,
 )
